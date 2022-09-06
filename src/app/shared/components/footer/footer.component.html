@@ -1,0 +1,12 @@
+<div class="footer">
+  <h3>2022 Angular store - @SergioPeralta22 </h3>
+  <div class="contact">
+    <h3>Contacto</h3>
+    <mat-form-field>
+      <input matInput [formControl]="emailField" type="email">
+    </mat-form-field>
+    {{emailField.valid}}{{emailField.invalid}}
+    <button mat-raised-button color="primary" [disabled]="emailField.invalid" (click)="sendEmail">Enviar</button>
+    <!-- <p *ngIf="emailField.invalid">El campo no es valido</p> -->
+  </div>
+</div>
