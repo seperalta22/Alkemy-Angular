@@ -1,0 +1,13 @@
+<p>
+  <mat-form-field appearance="outline">
+    <input matInput type="text" [formControl]="term" (input)="keyUp()" (keyup.enter)="searchDishes()"
+      placeholder="Ingrese un plato a buscar...">
+    <mat-icon matSuffix>search</mat-icon>
+  </mat-form-field>
+</p>
+
+<div class="grill" *ngIf="search && !term.invalid">
+  <div *ngFor="let dish of search">
+    <app-dish-card [dish]="dish" (boton)="addDish($event)"></app-dish-card>
+  </div>
+</div>

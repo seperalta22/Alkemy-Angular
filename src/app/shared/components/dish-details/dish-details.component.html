@@ -1,0 +1,34 @@
+<div class="flex" style="display:flex; justify-content:space-between">
+  <h1>Detalles del Plato: <b> {{data.title}}</b></h1>
+  <mat-chip color="warn" selected (click)="closeDialog()">X</mat-chip>
+</div>
+<mat-chip-list>
+  <mat-chip color="primary" selected>
+    Nombre: {{ data.title }}
+  </mat-chip>
+  <mat-chip color="primary" selected>
+    Precio:{{ data.pricePerServing| currency:"USD":"symbol":"2.2-2" }}
+  </mat-chip>
+  <mat-chip color="primary" selected>
+    Vegano: {{ getBoolean(data.vegan) }}
+  </mat-chip>
+  <mat-chip color="primary" selected>
+    Vegetariano: {{ getBoolean(data.vegetarian) }}
+  </mat-chip>
+  <mat-chip color="primary" selected>
+    Tiempo de preparación: {{ data.readyInMinutes }} min
+  </mat-chip>
+  <mat-chip color="primary" selected>
+    HealthScore: {{ data.healthScore }}
+  </mat-chip>
+  <mat-chip color="primary" selected>
+    Libre de Lacteos: {{ getBoolean(data.dairyFree) }}
+  </mat-chip>
+  <mat-chip color="primary" selected>
+    Libre de Gluten: {{ getBoolean(data.glutenFree) }}
+  </mat-chip>
+</mat-chip-list>
+<br>
+<h2> Descripción (en Inglés) : </h2>
+<div [innerHTML]="data?.summary">
+</div>

@@ -1,4 +1,31 @@
-<p>home-page works!</p>
-<pre>{{user |json }}</pre>
+<div class="menu-details">
+  <h1>Mi Menú</h1>
 
-<button (click)="logout()">Log out</button>
+  <div class="">
+    <div *ngIf="savedDishes.length > 0">
+      <ul class="list-group">
+        <li> Total: {{ totalDishes | currency }} </li>
+        <li> Tiempo promedio de preparación:
+          {{ averageTime | number:'1.1-2' }} minutos. </li>
+        <li> Promedio Health Score:
+          {{ averageScore | number: '1.1-2' }} </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<div class="menu" *ngIf="savedDishes.length > 0 ; else empty">
+  <div class="menu-container" *ngFor="let dish of savedDishes">
+    <app-dish-card [dish]="dish" (boton)="borrar($event)"></app-dish-card>
+  </div>
+</div>
+<ng-template #empty>
+  <div class="menu empty2">
+    <h2>El menú se encuentra vacío</h2>
+    <br>
+    <h3>Puede buscar y agregar platos desde el buscador de platos.</h3>
+
+    <button mat-raised-button color="primary" routerLink="/dishes">Buscar</button>
+  </div>
+</ng-template>

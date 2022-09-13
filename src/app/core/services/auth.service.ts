@@ -2,8 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { IUser } from 'src/app/models/user.interface';
-import { catchError, map, shareReplay, tap } from 'rxjs/operators';
-import { of } from 'rxjs';
+import { map, shareReplay } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { IAuthRes } from '../../models/auth-res.interface';
 
@@ -25,29 +24,17 @@ export class AuthService {
         body
       )
       .pipe(
-        tap((resp) => {
+        map((resp) => {
           if (resp.token) {
             this._user = { email: email, password: password };
-
             localStorage.setItem('token', resp.token);
           }
           if (resp.error) {
             console.log(resp.error);
           }
         }),
-        // map((resp) => resp.token),
-        // catchError((err) => of(err.error.error)),
-        shareReplay()
+        shareReplay(1)
       );
-
-    // map((response: IAuthRes) => {
-    //   localStorage.setItem('token', response.token!);
-    //  })
-    // shareReplay()
-  }
-
-  userRegister(user: IUser) {
-    return this.http.post<IUser>(`${environment.loginUrl}`, user);
   }
 
   isLoggedIn() {

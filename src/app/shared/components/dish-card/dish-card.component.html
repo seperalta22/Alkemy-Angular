@@ -1,0 +1,24 @@
+<mat-card class="card">
+  <img matCardImage [src]="dish?.image">
+  <div class="vegan">
+    <img *ngIf="dish?.vegan" src="../../../../assets/img/vegan-logo.png">
+  </div>
+  <mat-card-header>
+    <mat-card-title [ngStyle]="{'background-color': (dish.vegan) ? '#1D6B2C' : '#8C4B37'}">
+      {{ dish?.title |slice:0:22 }}{{ (dish?.title.length > 22) ? '...' : '' }}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <p class="price">Precio: {{ dish.pricePerServing | currency:"USD":"symbol":"2.2-2" }}</p>
+    <p>Tiempo de preparación: {{ dish.readyInMinutes }} min </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button type="button" mat-raised-button (click)="event()" [ngClass]="addDish ? 'add' : 'delete'">
+      {{ (addDish)? 'Agregar al Menú': 'Quitar del Menú' }}
+    </button>
+    <button mat-raised-button color="primary" (click)="openDialog()" type="button">
+      Ver Detalles
+    </button>
+
+  </mat-card-actions>
+
+</mat-card>

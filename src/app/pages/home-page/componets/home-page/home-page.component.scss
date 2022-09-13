@@ -1,0 +1,54 @@
+.menu {
+  padding: 2rem 1rem 5rem 1rem;
+  display: flex;
+  width: 100%;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  justify-content: center;
+  // display: grid;
+  // grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  width: 97%;
+  gap: 1rem;
+  border: 1px solid #ccc;
+  margin-bottom: 5rem;
+  .menu-container {
+    margin-top: 2rem;
+  }
+}
+.menu-details {
+  margin-left: 5rem;
+  padding: 3rem;
+}
+h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+li {
+  font-size: 1.7rem;
+  margin: 1rem;
+}
+
+.empty2 {
+  padding: 10rem 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  button {
+    font-size: 1.5rem;
+    padding: 0.5rem 3rem;
+  }
+}

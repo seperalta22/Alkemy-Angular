@@ -1,52 +1,3 @@
-// :host {
-//   display: flex;
-//   background-color: #13145c;
-//   color: white;
-//   font-family: "Roboto", sans-serif;
-//   padding: 1rem;
-// }
-// .container {
-//   display: flex;
-//   align-items: center;
-//   justify-content: space-between;
-//   width: 100%;
-//   max-width: 1200px;
-//   margin: 0 auto;
-// }
-// .logo {
-//   gap: 1rem;
-//   align-items: center;
-//   display: flex;
-//   color: white;
-//   text-decoration: none;
-//   font-weight: bold;
-// }
-
-// nav {
-//   display: flex;
-//   align-items: center;
-//   justify-content: space-around;
-//   gap: 2rem;
-//   a {
-//     text-decoration: none;
-//     color: white;
-//     text-transform: uppercase;
-//     font-weight: bold;
-//     &:hover {
-//       transform: scale(1.1);
-//       transition: all 0.2s ease-in-out;
-//     }
-//   }
-
-//   .active {
-//     color: #ffc107;
-//   }
-// }
-
-// .logo img {
-//   width: 3rem;
-// }
-
 mat-toolbar-row {
   display: flex;
   align-items: center;
@@ -78,5 +29,24 @@ mat-toolbar-row {
   color: aliceblue;
   img {
     width: 3rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  mat-toolbar {
+    height: 6rem;
+  }
+  mat-toolbar-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    .logo {
+      margin-top: 2rem;
+    }
+  }
+
+  nav a {
+    gap: 2rem;
   }
 }

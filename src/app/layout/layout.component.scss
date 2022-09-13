@@ -1,4 +1,25 @@
+:host {
+  min-height: 100vh;
+}
+
+.wrapper {
+  min-height: calc(100vh - 60px);
+}
 .container {
-  width: 100%;
+  max-width: 1500px;
   margin: 0 auto;
+}
+
+.footer {
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+
+  background-color: #f5f5f5;
+}
+
+@media (max-width: 1300px) {
+  .container {
+    max-width: 1000px;
+  }
 }

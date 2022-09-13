@@ -14,19 +14,22 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
     <a class="logo" routerLink="/home">
-      <img src="assets/img/logo.png" alt="logo">
-      <h1>NG T-Shirts</h1>
+      <!-- <img src="assets/img/logo.png" alt="logo"> -->
+      <h1>A la Carta</h1>
     </a>
-    <nav>
-      <a mat-button routerLink="/home" routerLinkActive="active">Home</a>
-      <a mat-button routerLink="/products" routerLinkActive="active">Products</a>
-      <a mat-button routerLink="/contact" routerLinkActive="active">Contact</a>
-    </nav>
-    <!-- <a mat-raised-button [matBadge]="total$|async" matBadgeColor="warn" routerLink="/order">
+    <div *ngIf="token">
+      <nav>
+        <a mat-button routerLink="/home" routerLinkActive="active">Mi menu</a>
+        <a mat-button routerLink="/dishes" routerLinkActive="active">Buscador de Platos</a>
+        <a mat-raised-button (click)="logout()">Cerrar Sesion</a>
+      </nav>
+      <!-- <a mat-raised-button [matBadge]="total$|async" matBadgeColor="warn" routerLink="/order">
       <span class="material-icons">
         shopping_cart
       </span>My Cart
     </a> -->
+
+    </div>
   </mat-toolbar-row>
 
 </mat-toolbar>
