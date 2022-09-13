@@ -5,8 +5,6 @@
   margin: 0 auto;
   flex-wrap: wrap;
   justify-content: center;
-  // display: grid;
-  // grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   width: 97%;
   gap: 1rem;
   border: 1px solid #ccc;
@@ -16,17 +14,17 @@
   }
 }
 .menu-details {
-  margin-left: 5rem;
-  padding: 3rem;
+  margin-left: 7rem;
+  padding: 2rem;
 }
 h1 {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 1rem;
 }
 
 li {
-  font-size: 1.7rem;
+  font-size: 1.2rem;
   margin: 1rem;
 }
 
@@ -50,5 +48,45 @@ li {
   button {
     font-size: 1.5rem;
     padding: 0.5rem 3rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .menu-details {
+    margin-left: 0;
+    padding: 3rem;
+  }
+  h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  li {
+    font-size: 1.2rem;
+    margin: 1rem;
+  }
+
+  .empty2 {
+    padding: 10rem 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    h2 {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    button {
+      font-size: 1.5rem;
+      padding: 0.5rem 3rem;
+    }
   }
 }

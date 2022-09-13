@@ -1,6 +1,9 @@
 import { Component, OnInit, DoCheck } from '@angular/core';
 // import { CartService } from '../../../core/services/cart.service';
 import { AuthService } from '../../../core/services/auth.service';
+import { Observable, map } from 'rxjs';
+import { MenuService } from '../../../core/services/menu.service';
+import { IDish } from '../../../models/Dish.interface';
 
 @Component({
   selector: 'app-header',
@@ -10,17 +13,12 @@ import { AuthService } from '../../../core/services/auth.service';
 export class HeaderComponent implements OnInit, DoCheck {
   token!: boolean;
 
-  // total$: Observable<number>;
+  total$!: number;
 
-  // constructor(private cartService: CartService) {
-  //   this.total$ = this.cartService.cart$.pipe(
-  //     map((products) => {
-  //       return products.length;
-  //     })
-  //   );
-  // }
-
-  constructor(private authService: AuthService) {}
+  constructor(
+    private authService: AuthService,
+    private menuService: MenuService
+  ) {}
 
   logout() {
     this.authService.userLogout();
@@ -34,5 +32,7 @@ export class HeaderComponent implements OnInit, DoCheck {
 
   ngDoCheck(): void {
     this.token = this.authService.isLoggedIn();
+    const localMenu = JSON.parse(localStorage.getItem('menu') || '[]');
+    this.total$ = localMenu.length;
   }
 }

@@ -1,27 +1,25 @@
-<!-- <div class="container">
-  <a class="logo" routerLink="/home">
-    <img src="assets/img/logo.png" alt="logo">
-    <h1>NG T-Shirts</h1>
-  </a>
-  <nav>
-    <a routerLink="/home" routerLinkActive="active">Home</a>
-    <a routerLink="/products" routerLinkActive="active">Products</a>
-    <a routerLink="/contact" routerLinkActive="active">Contact</a>
-  </nav>
-
-</div> -->
-
 <mat-toolbar color="primary">
   <mat-toolbar-row>
     <a class="logo" routerLink="/home">
-      <!-- <img src="assets/img/logo.png" alt="logo"> -->
+      <img src="assets/img/logo.png" alt="logo">
       <h1>A la Carta</h1>
     </a>
     <div *ngIf="token">
       <nav>
-        <a mat-button routerLink="/home" routerLinkActive="active">Mi menu</a>
-        <a mat-button routerLink="/dishes" routerLinkActive="active">Buscador de Platos</a>
-        <a mat-raised-button (click)="logout()">Cerrar Sesion</a>
+
+        <a mat-button routerLink="/home" [matBadge]="total$" matBadgeColor="warn" routerLinkActive="active">
+          <mat-icon>restaurant_menu</mat-icon> Mi menú
+        </a>
+        <a mat-button routerLink="/dishes" routerLinkActive="active">
+          <mat-icon>search</mat-icon>Buscador de Platos
+        </a>
+        <a mat-raised-button (click)="logout()">
+          <mat-icon>logout</mat-icon> Cerrar Sesión
+        </a>
+        <button class="mobile-menu" mat-icon-button [matMenuTriggerFor]="menu"
+          aria-label="Example icon-button with a menu">
+          <mat-icon>menu</mat-icon>
+        </button>
       </nav>
       <!-- <a mat-raised-button [matBadge]="total$|async" matBadgeColor="warn" routerLink="/order">
       <span class="material-icons">
@@ -29,7 +27,24 @@
       </span>My Cart
     </a> -->
 
+
     </div>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>
+        <mat-icon>restaurant_menu</mat-icon>
+        <a mat-button routerLink="/home" routerLinkActive="active">Mi menú</a>
+
+      </button>
+      <button mat-menu-item>
+        <mat-icon>search</mat-icon>
+        <a mat-button routerLink="/dishes" routerLinkActive="active">Buscador de Platos</a>
+
+      </button>
+      <button mat-menu-item>
+        <mat-icon>logout</mat-icon>
+        <a mat-button (click)="logout()">Cerrar Sesion</a>
+      </button>
+    </mat-menu>
   </mat-toolbar-row>
 
 </mat-toolbar>

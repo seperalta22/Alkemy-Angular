@@ -2,18 +2,20 @@ mat-toolbar-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1200px;
+  max-width: 1450px;
   margin: 0 auto;
-  padding: 0 5rem;
+  padding: 2.5rem 0;
   nav a {
     text-decoration: none;
     text-transform: uppercase;
-    gap: 5rem;
+    align-self: center;
+    margin: 0 0.6rem;
     &:hover {
       transform: scale(1.1);
       transition: all 0.2s ease-in-out;
     }
   }
+
   .active {
     color: #ffc107;
   }
@@ -27,14 +29,18 @@ mat-toolbar-row {
   text-decoration: none;
   font-weight: bold;
   color: aliceblue;
+  margin-left: 1rem;
   img {
-    width: 3rem;
+    width: 5rem;
+  }
+  h1 {
+    font-size: 1.5rem;
   }
 }
 
 @media screen and (max-width: 768px) {
   mat-toolbar {
-    height: 6rem;
+    height: 7rem;
   }
   mat-toolbar-row {
     display: flex;
@@ -43,10 +49,35 @@ mat-toolbar-row {
     justify-content: space-around;
     .logo {
       margin-top: 2rem;
+      margin-bottom: 1rem;
+      margin-left: 1rem;
     }
   }
 
   nav a {
-    gap: 2rem;
+    gap: 3rem;
+  }
+}
+
+.mobile-menu {
+  display: none;
+}
+
+@media screen and (max-width: 567px) {
+  .mobile-menu {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(-100%, 60%);
+    font-size: 1.8rem;
+    cursor: pointer;
+  }
+  nav a {
+    display: none;
+  }
+  mat-toolbar-row {
+    flex-direction: row;
+    justify-content: flex-start;
   }
 }
