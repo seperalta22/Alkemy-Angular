@@ -3,6 +3,7 @@ form {
   margin: 0 auto;
   display: flex;
   width: fit-content;
+  padding: 5rem 0;
 }
 
 mat-card {
@@ -13,7 +14,15 @@ mat-card {
   align-items: center;
   width: 100%;
   height: 100%;
+  border: 2px solid #ccc;
+
   button {
     margin-top: 1rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  form {
+    padding: 2rem 0;
   }
 }
